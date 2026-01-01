@@ -75,17 +75,16 @@ ENDM
 
 storeRand MACRO param1
 	rdrand eax
-	mov ebx, 100
+	mov ecx, 100
 	xor edx, edx
-	div ebx
+	div ecx
 	mov dword ptr [param1], edx
 ENDM
 
 main PROC
 	sub rsp, 56
 
-	lea rcx, fmtStr
-	call writeLine
+	printStr fmtStr
 
 	storeRand randNum
 
